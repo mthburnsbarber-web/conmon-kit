@@ -1,0 +1,21 @@
+{
+  "name": "conmon-kit",
+  "version": "1.0.0",
+  "description": "Monthly continuous monitoring for FedRAMP, GovRAMP and similar authorizations from free scanners: raw results, a summary report and a POA&M that carries forward.",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "conmon": "./conmon.mjs" },
+  "exports": {
+    ".": "./conmon.mjs",
+    "./poam": "./poam.mjs",
+    "./summary": "./summary.mjs",
+    "./results-csv": "./results-csv.mjs",
+    "./checks/cloudflare": "./checks/cloudflare.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "note": "The authorization boundary. Keep IDs the same as your SSP inventory. kind: zone, code (software you write and deploy), managed (provider-run data services with no OS or database engine you can scan), workstation. source: the Trivy component that scans the code. worker: the Cloudflare Worker it runs as. url: the web application scan target. members: what a group asset covers.",
+  "assets": [
+    { "id": "INV-ZONE-01", "name": "example.com zone", "kind": "zone" },
+    { "id": "INV-APP-01", "name": "API", "kind": "code", "source": "api", "worker": "example-api", "url": "https://app.example.com/" },
+    { "id": "INV-APP-02", "name": "Web front end", "kind": "code", "source": "web" },
+    { "id": "INV-DB-01", "name": "D1 example-db", "kind": "managed" },
+    { "id": "INV-STORE-01", "name": "Object and key-value stores", "kind": "managed", "members": ["R2 example-uploads", "KV 0123456789abcdef0123456789abcdef"] },
+    { "id": "INV-ADM-01", "name": "Administrator laptop", "kind": "workstation" }
+  ]
+}

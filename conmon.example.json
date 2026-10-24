@@ -1,0 +1,19 @@
+{
+  "system": "Example App",
+  "organization": "Example Inc.",
+  "pointOfContact": "Jane Doe, Security Lead",
+  "idPrefix": "POAM",
+  "deadlines": { "High": 30, "Moderate": 90, "Low": 180 },
+  "inventory": "inventory.example.json",
+  "gapAssessment": "examples/gap-assessment.example.md",
+  "boundaryPaths": ["services/api/", "services/web/"],
+  "scans": {
+    "trivy": { "api": "../services/api", "web": "../services/web" },
+    "nuclei": { "url": "https://app.example.com/", "excludeTags": ["dos", "intrusive"], "rateLimit": 10 },
+    "testssl": { "url": "https://app.example.com/" },
+    "headers": ["https://app.example.com/", "http://app.example.com/"],
+    "dependabot": { "repo": "example/app" },
+    "workstation": true,
+    "cloudflare": { "zone": "example.com", "path": "/", "routePrefixes": ["app.example.com/"], "deployedWorkers": ["example-api"] }
+  }
+}

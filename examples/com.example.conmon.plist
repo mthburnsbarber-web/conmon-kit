@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Monthly scan on the 15th at 02:30, or at the next wake if the Mac was asleep. Copy to ~/Library/LaunchAgents/, fix the
+     paths, then: launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.example.conmon.plist -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.example.conmon</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/path/to/conmon-kit/conmon.mjs</string>
+    <string>scan</string>
+    <string>/path/to/private/evidence</string>
+    <string>--config</string>
+    <string>/path/to/conmon.json</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Day</key>
+    <integer>15</integer>
+    <key>Hour</key>
+    <integer>2</integer>
+    <key>Minute</key>
+    <integer>30</integer>
+  </dict>
+  <key>LowPriorityIO</key>
+  <true/>
+  <key>Nice</key>
+  <integer>10</integer>
+  <key>StandardOutPath</key>
+  <string>/tmp/conmon.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/conmon.log</string>
+</dict>
+</plist>
